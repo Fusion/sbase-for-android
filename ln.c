@@ -15,6 +15,31 @@ usage(void)
 	        "       %s [-f] [-L | -P | -s] target ... dir\n", argv0, argv0);
 }
 
+// TODO Implement!
+//
+// CFR: At this point, these two functions will return an error but they are
+// needed for Android compatibility.
+//
+// Expected behavior:
+// If the pathname given in newpath is relative,
+//   then it is interpreted relative to the directory referred to by the
+//   file descriptor newdirfd (rather than relative to the current working
+//   directory of the calling process, as is done by symlink(2) for a
+//   relative pathname).
+// If newpath is relative and newdirfd is the special value AT_FDCWD,
+//   then newpath is interpreted relative to the current working directory
+//   of the calling process (like symlink(2)).
+// If newpath is absolute, then newdirfd is ignored.
+// 
+int symlinkat(char const *oldpath, int newdirfd, char const *newpath) {
+    errno = ENOSYS;
+    return -1;
+}
+int linkat(int pos, char const *oldpath, int newdirfd, char const *newpath, int flags) {
+    errno = ENOSYS;
+    return -1;
+}
+
 int
 main(int argc, char *argv[])
 {

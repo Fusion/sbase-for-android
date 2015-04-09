@@ -1,4 +1,7 @@
 /* See LICENSE file for copyright and license details. */
+// CFR: Android maintains some definitions in termios
+#include <termios.h>
+//
 #include <sys/ioctl.h>
 
 #include <limits.h>

@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 #include <sys/types.h>
 
-#include <regex.h>
+#include "regex.h"
 #include <stddef.h>
 #include <stdio.h>
 
@@ -18,6 +18,10 @@
 #define LIMIT(x, a, b)  (x) = (x) < (a) ? (a) : (x) > (b) ? (b) : (x)
 
 #define LEN(x) (sizeof (x) / sizeof *(x))
+
+#ifndef _POSIX_HOST_NAME_MAX
+    #define _POSIX_HOST_NAME_MAX 255
+#endif
 
 extern char *argv0;
 

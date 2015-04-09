@@ -4,3 +4,6 @@
 #ifndef HOST_NAME_MAX
 #define HOST_NAME_MAX _POSIX_HOST_NAME_MAX
 #endif
+
+// CFR: Needed for Android: included BSD port
+#include "fmemopen.h"

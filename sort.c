@@ -43,6 +43,13 @@ static char *columns(char *, const struct keydef *);
 static int Cflag = 0, cflag = 0, uflag = 0;
 static char *fieldsep = NULL;
 
+// CFR
+// Note: this is ok for now but in future Android may use
+// different sizes for double and long double
+long double strtold(const char *nptr, char **endptr) {
+    return strtod(nptr, endptr);
+}
+
 static void
 addkeydef(char *def, int flags)
 {
