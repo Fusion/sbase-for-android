@@ -70,3 +70,5 @@ My favorite ways to be contacted are:
 Cheers,
 
 Chris F. Ravenscroft
+
+!["This sucks less!" from stocksnap.io](res/apic.jpg)
