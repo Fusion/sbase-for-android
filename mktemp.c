@@ -17,7 +17,7 @@ main(int argc, char *argv[])
 {
 	int dflag = 0, qflag = 0, fd;
 	char *template = "tmp.XXXXXXXXXX",
-	     *tmpdir = "/tmp", *p,
+	     *tmpdir = "/data/local/tmp", *p,
 	      path[PATH_MAX], tmp[PATH_MAX];
 
 	ARGBEGIN {

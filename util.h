@@ -78,3 +78,34 @@ long long strtonum(const char *, long long, long long, const char **);
 long long enstrtonum(int, const char *, long long, long long);
 long long estrtonum(const char *, long long, long long);
 size_t unescape(char *);
+
+/* ubase */
+
+// For dd.c: get device size
+#define BLKGETSIZE64 _IOR(0x12,114,size_t)
+//
+#define POSIX_FADV_SEQUENTIAL   2
+#define POSIX_FADV_DONTNEED     4
+// expect more data
+#define SPLICE_F_MORE   (0x04)
+
+#ifndef __ANDROID__
+    #include <sys/statvfs.h>
+#else
+    #include <sys/vfs.h>
+    #define statvfs statfs
+    #define fstatvfs fstatfs
+#endif
+
+#define MS_RELATIME     (1<<21)
+#define MNTOPT_NOAUTO   "noauto"
+#define MNTTYPE_SWAP    "swap" 
+#define TTY_NAME_MAX 32
+
+long estrtol(const char *, int);
+unsigned long estrtoul(const char *, int);
+FILE* setmntent(const char* path, const char* mode);
+int endmntent(FILE* fp);
+ssize_t agetline(char **, size_t *, FILE *);
+void devtotty(int, int *, int *);
+int ttytostr(int, int, char *, size_t);

@@ -21,13 +21,16 @@ foremost goal. Thus, the "upstream" sbase repository does not build.
 
 # A LAUNDRY LIST
 
+Note: this is now sbase + some interesting utils from ubase
+as well. _ubase_, by the same less sucky people!
+
 Some of the things I have done to please the Android ndk:
 
 * Fixed some imports, such as termios.
 * Added some imports and code such as fmemopen
 * Stubbed out some missing functions such as linkat()
 * Added missing default functions such as stdtold()
-* Added missing POSIX definitions (well, 1 so far)
+* Added missing POSIX definitions (now more than 1 :))
 * Created Android-specific Makefiles and Android.mk
 
 I also borrowed some code from OpenBSD. Unlike Linux's GNU utils, there is no
@@ -55,7 +58,16 @@ At this point, there are several:
 * This only builds for ARM. This could be easily fixed by adding a few
   targets to the build files.
 * Others, than I cannot think of right now but I am sure they are there
-nontheless.
+  nontheless.
+
+## Command (current) limitations
+
+* lsusb could not be implemented because /sys/bus/usb/devices is empty
+* ps, who could not be implemented in their raw form as they rely on u/wtmp
+* same goes for last
+* hwclock needs to be rewritten
+* halt is only to be called if you wish to freeze your phone, e.g. to
+  interrupt an otherwise dangerous operation (rm -rf?)
 
 # BUILDING
 
