@@ -17,4 +17,4 @@ libuutil/obj/local/armeabi/libuutil.a:
 	cd libuutil && ${BUILDER} NDK_PROJECT_PATH=$(CURDIR)/libuutil APP_BUILD_SCRIPT=$(CURDIR)/libuutil/Android.mk NDK_APPLICATION_MK=$(CURDIR)/libuutil/Application.mk
 
 package:
-	cd libs/armeabi && zip sbase_bin.zip * && cd ../.. && mv libs/armeabi/sbase_bin.zip .
+	cd libs/armeabi && zip sbase_bin.zip * && cd ../.. && mv libs/armeabi/sbase_bin.zip . && git checkout gh-pages && git add sbase_bin.zip && git commit -m "Updated binary archive" && git checkout master
