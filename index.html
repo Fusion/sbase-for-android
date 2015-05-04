@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Sbase-for-android by Fusion</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/Fusion/sbase-for-android">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/Fusion/sbase-for-android/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/Fusion/sbase-for-android/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Sbase-for-android</h1>
+          <p>Shell tools that suck less!</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/Fusion">Fusion</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a id="foreword" class="anchor" href="#foreword" aria-hidden="true"><span class="octicon octicon-link"></span></a>FOREWORD</h1>
+
+<p>Hi. First, I would like to direct you to the file called 'README' (without
+extension) -- it is the file where you will find information on the
+sbase ("suck less") project, written by the authors.</p>
+
+<p>This file is only about the Android "port" (if it can be called that)</p>
+
+<p>I created this project because:</p>
+
+<ol>
+<li><p>I am tired of some limitations of Busybox -- while an excellent
+project, due to its own lightweight nature, the lack of certain command
+line modifiers has been driving me up the wall.
+A good example is that when I am checking files on my phone, I would like,
+as in my other shells, to be able to type 'ls -ltr' to sort them
+most recent last. Alas, I cannot.</p></li>
+<li><p>While sbase is a well written project that compiles almost anywhere,
+Android was not put together with POSIX compatibility as its first and
+foremost goal. Thus, the "upstream" sbase repository does not build.</p></li>
+</ol>
+
+<h1>
+<a id="a-laundry-list" class="anchor" href="#a-laundry-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>A LAUNDRY LIST</h1>
+
+<p>Note: this is now sbase + some interesting utils from ubase
+as well. <em>ubase</em>, by the same less sucky people!</p>
+
+<p>Some of the things I have done to please the Android ndk:</p>
+
+<ul>
+<li>Fixed some imports, such as termios.</li>
+<li>Added some imports and code such as fmemopen</li>
+<li>Stubbed out some missing functions such as linkat()</li>
+<li>Added missing default functions such as stdtold()</li>
+<li>Added missing POSIX definitions (now more than 1 :))</li>
+<li>Created Android-specific Makefiles and Android.mk</li>
+</ul>
+
+<p>I also borrowed some code from OpenBSD. Unlike Linux's GNU utils, there is no
+license incompatibility. It is:</p>
+
+<ul>
+<li>regex.h</li>
+<li>libutil/regex2.h</li>
+<li>libutil/cclass.h</li>
+<li>libutil/cname.h</li>
+<li>libutil/engine.c</li>
+<li>libutil/fmemopen.c|h</li>
+<li>libutil/getline.c</li>
+<li>libutil/regcomp.c</li>
+<li>libutil/regerror.c</li>
+<li>libutil/regexec.c</li>
+<li>libutil/regfree.c</li>
+<li>libutil/utils.c</li>
+</ul>
+
+<h1>
+<a id="limitations" class="anchor" href="#limitations" aria-hidden="true"><span class="octicon octicon-link"></span></a>LIMITATIONS</h1>
+
+<p>At this point, there are several:</p>
+
+<ul>
+<li>The code could be cleaner, especially the way I mix BSD imports with the 
+original code.</li>
+<li>This only builds for ARM. This could be easily fixed by adding a few
+targets to the build files.</li>
+<li>Others, than I cannot think of right now but I am sure they are there
+nontheless.</li>
+</ul>
+
+<h2>
+<a id="command-current-limitations" class="anchor" href="#command-current-limitations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Command (current) limitations</h2>
+
+<ul>
+<li>lsusb could not be implemented because /sys/bus/usb/devices is empty</li>
+<li>ps, who could not be implemented in their raw form as they rely on u/wtmp</li>
+<li>same goes for last</li>
+<li>hwclock needs to be rewritten</li>
+<li>halt is only to be called if you wish to freeze your phone, e.g. to
+interrupt an otherwise dangerous operation (rm -rf?)</li>
+</ul>
+
+<h1>
+<a id="building" class="anchor" href="#building" aria-hidden="true"><span class="octicon octicon-link"></span></a>BUILDING</h1>
+
+<pre><code>make
+</code></pre>
+
+<h1>
+<a id="contact" class="anchor" href="#contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>CONTACT</h1>
+
+<p>My favorite ways to be contacted are:</p>
+
+<ul>
+<li>Google+ (<a href="https://plus.google.com/+ChrisRavenscroft/posts">https://plus.google.com/+ChrisRavenscroft/posts</a>)</li>
+<li>XDA! ("cyansmoker")</li>
+</ul>
+
+<p>Cheers,</p>
+
+<p>Chris F. Ravenscroft</p>
+
+<p><img src="https://github.com/Fusion/sbase-for-android/raw/master/res/apic.jpg" alt='"This sucks less!" from stocksnap.io'></p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
