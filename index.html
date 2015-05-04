@@ -46,19 +46,36 @@ sbase ("suck less") project, written by the authors.</p>
 
 <p>This file is only about the Android "port" (if it can be called that)</p>
 
-<p>I created this project because:</p>
+<h2>Use Cases</h2>
 
-<ol>
-<li><p>I am tired of some limitations of Busybox -- while an excellent
+<em><p>Or "Why did I even create this project?"</p></em>
+
+<h3>For shell users</h3>
+
+<p>I am tired of some limitations of Busybox -- while an excellent
 project, due to its own lightweight nature, the lack of certain command
 line modifiers has been driving me up the wall.
 A good example is that when I am checking files on my phone, I would like,
 as in my other shells, to be able to type 'ls -ltr' to sort them
-most recent last. Alas, I cannot.</p></li>
-<li><p>While sbase is a well written project that compiles almost anywhere,
+most recent last. Alas, I cannot.</p>
+
+<h3>For application developers</h3>
+
+<p>You may be creating standard applications that you need to speed up 
+or at least wish not to reinvent the wheel, or you may be writing 
+applications that require root access (plug: Are you using RootTools yet?) 
+Rather than relying on Busybox being pre installed, hoping that is is the 
+version that you need and that its syntax will cover your needs, how about 
+shipping along your with app the binaries you need? They are very small 
+binaries since they are specialized and, using RootTools, easy to install 
+for your application's use.</p>
+
+<h3>So, was sbase ready to taker over?</h3>
+
+<p>While sbase is a well written project that compiles almost anywhere,
 Android was not put together with POSIX compatibility as its first and
-foremost goal. Thus, the "upstream" sbase repository does not build.</p></li>
-</ol>
+foremost goal. Thus, the "upstream" sbase repository does not build. 
+And that is how this small project was born.</p>
 
 <h1>
 <a id="a-laundry-list" class="anchor" href="#a-laundry-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>A LAUNDRY LIST</h1>
