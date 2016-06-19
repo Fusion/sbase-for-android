@@ -71,12 +71,22 @@ At this point, there are several:
 
 # BUILDING
 
-    make
+    make && \
+    make package
+
+# INSTALLING
+
+    adb push sbase_bin.zip /sdcard && \
+    adb shell && \
+    su && \
+    . ./install_cmd.sh <command name> && \
+    s_<command name> --help && \
+    # this last line was for testing.
 
 # CONTACT
 
 My favorite ways to be contacted are:
-* Google+ (https://plus.google.com/+ChrisRavenscroft/posts)
+* Google+ (https://plus.google.com/+ChrisRavenscroft)
 * XDA! ("cyansmoker")
 
 Cheers,
